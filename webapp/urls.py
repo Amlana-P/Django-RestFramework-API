@@ -1,6 +1,8 @@
-from rest_framework.routers import DefaultRouter
+from rest_framework.routers import SimpleRouter
 from webapp.views import UserViewSet
+from webapp.views import csvDbViewSet
 
-router = DefaultRouter()
-router.register(r'', UserViewSet, basename='users')
+router = SimpleRouter()
+router.register(r'csvDb', csvDbViewSet, basename='db')
+router.register(r'users', UserViewSet, basename='api')
 urlpatterns = router.urls

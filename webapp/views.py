@@ -5,8 +5,10 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from . serializers import UserSerializer
+from . serializers import csvDbSerializer
 from rest_framework import viewsets
 from . models import Users
+from . models import csvDb
 
 class UserData(APIView):
     def get(self, request):
@@ -20,5 +22,9 @@ class UserData(APIView):
 class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     queryset = Users.objects.all()
+
+class csvDbViewSet(viewsets.ModelViewSet):
+    serializer_class = csvDbSerializer
+    queryset = csvDb.objects.all()
 
     
